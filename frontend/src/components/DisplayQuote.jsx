@@ -1,7 +1,15 @@
 import Select from "react-select";
 import Quote from "./Quote";
 
-const DisplayQuote = ({ quotes, options, getNewAge }) => {
+const DisplayQuote = ({ quotes, getNewAge }) => {
+  
+  const options = [
+    { value: 0, label: "All Time" },
+    { value: 1, label: "Last Year" },
+    { value: 2, label: "Last Month" },
+    { value: 3, label: "Last Week" },
+  ];
+
   return (
     <div>
       <h2>Previous Quotes</h2>

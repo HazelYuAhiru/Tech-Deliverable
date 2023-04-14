@@ -1,4 +1,5 @@
 import "./App.css";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import DisplayQuote from "./components/DisplayQuote";
 import AddQuote from "./components/AddQuote";
@@ -8,35 +9,25 @@ function App() {
   const [quotes, setQuotes] = useState([]);
   const [ageFilter, setFilter] = useState(0);
 
-  const options = [
-    { value: 0, label: "All Time" },
-    { value: 1, label: "Last Year" },
-    { value: 2, label: "Last Month" },
-    { value: 3, label: "Last Week" },
-  ];
-
-  // Fetch Quotes
+ // Fetch Quotes
   const fetchQuote = async (newAge) => {
-    const res = await fetch(`../api/quote/?maxAge=${newAge}`);
-    const data = await res.json();
-
-    return data;
-  };
+    setFilter(newAge);
+    axios
+      .get(`http://127.0.0.1:8000/getquote?ageFilter=${newAge}`)
+      .then((res) => {
+        setQuotes(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   const getNewAge = (newfilt) => {
-    getQuote(newfilt.value);
-  };
-
-  const getQuote = async (newAge) => {
-    setFilter(newAge);
-    const qServer = await fetchQuote(newAge);
-    setQuotes(qServer);
+    fetchQuote(newfilt.value);
   };
 
   //for initial setup
   useEffect(() => {
-    getQuote(0);
-  }, []);
+    fetchQuote(ageFilter);
+  }, [ageFilter]);
 
   return (
     <div className="App">
@@ -44,10 +35,10 @@ function App() {
       <Header />
 
       {/* TODO: implement custom form submission logic to not refresh the page */}
-      <AddQuote ageFilter={ageFilter} getQuote={getQuote} />
+      <AddQuote ageFilter={ageFilter} getQuote={fetchQuote} />
 
       {/* TODO: Display the actual quotes from the database */}
-      <DisplayQuote quotes={quotes} options={options} getNewAge={getNewAge} />
+      <DisplayQuote quotes={quotes} getNewAge={getNewAge} />
     </div>
   );
 }

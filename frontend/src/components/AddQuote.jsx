@@ -13,7 +13,7 @@ const AddQuote = ({ ageFilter, getQuote }) => {
     form.append("message", message);
 
     axios
-      .post("/api/quote", form)
+      .post(`http://127.0.0.1:8000/quote`, form)
       .then((response) => console.log(response))
       .catch((error) => {
         console.log("something went wrong");
