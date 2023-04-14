@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios';
 
 const AddQuote = ({ageFilter, getQuote}) => {
@@ -12,7 +12,11 @@ const AddQuote = ({ageFilter, getQuote}) => {
         form.append('name', name)
         form.append('message', message)
 
-        axios.post("/quote", form)
+        axios.post("/api/quote", form)
+        .then((response) => console.log(response))
+        .catch((error) => {
+            console.log("something went wrong");
+        });
 
         setName('')
         setMessage('')
