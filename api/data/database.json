@@ -49,41 +49,6 @@
             "name": "boo",
             "message": "moo",
             "time": "2023-03-06T14:13:55"
-        },
-        {
-            "name": "add",
-            "message": "mew",
-            "time": "2023-04-13T23:43:52"
-        },
-        {
-            "name": "also",
-            "message": "a new quote",
-            "time": "2023-04-13T23:44:16"
-        },
-        {
-            "name": "sss",
-            "message": "x",
-            "time": "2023-04-13T23:47:32"
-        },
-        {
-            "name": "dd",
-            "message": "d",
-            "time": "2023-04-13T23:47:55"
-        },
-        {
-            "name": "test",
-            "message": "test",
-            "time": "2023-04-13T23:49:05"
-        },
-        {
-            "name": "newtest",
-            "message": "hope it works",
-            "time": "2023-04-13T23:55:49"
-        },
-        {
-            "name": "post",
-            "message": "s",
-            "time": "2023-04-14T00:04:10"
         }
     ]
 }
