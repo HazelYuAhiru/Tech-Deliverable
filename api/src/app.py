@@ -30,6 +30,7 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
     Process a user submitting a new quote.
     You should not modify this function.
     """
+    print(name, message)
     now = datetime.now().replace(microsecond=0)
     post = {
         "name": name,
