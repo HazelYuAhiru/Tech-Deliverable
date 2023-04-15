@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Input , Text , Textarea , Button , Container , Center} from '@chakra-ui/react'
+import {
+  Input,
+  Text,
+  Textarea,
+  Button,
+  Center,
+  Grid,
+  GridItem,
+} from "@chakra-ui/react";
 import axios from "axios";
 
 const AddQuote = ({ ageFilter, getQuote }) => {
@@ -27,28 +35,42 @@ const AddQuote = ({ ageFilter, getQuote }) => {
   };
 
   return (
-    <Container marginTop='2%'>
-      <h2>Submit a quote</h2>
-        <Text mb='8px'>Name: </Text>
-        <Input placeholder='Let Us Know Your Name!'
-          size='sm'
+    <Grid
+      templateColumns="repeat(2, 1fr)"
+      marginLeft="5%"
+      marginRight="5%"
+      marginTop="2%"
+      marginBottom="2%"
+    >
+      <GridItem marginTop="5%">
+        <Text fontSize="6xl">SUBMIT A QUOTE </Text>
+        <Text as="i">"What is a quote?"</Text>
+      </GridItem>
+      <GridItem>
+        <Text mb="8px">Name: </Text>
+        <Input
+          placeholder="Let Us Know Your Name!"
+          size="sm"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
 
-        <Text mb='8px'>Quote: </Text>
+        <Text mb="8px">Quote: </Text>
         <Textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder='Type Quote Here'
-          size='sm'
+          placeholder="Type Quote Here"
+          size="sm"
           required
         />
-        <Center>
-        <Button colorScheme='teal' variant='outline' onClick={onSubmit} >Submit</Button>
+        <Center marginTop="1%">
+          <Button colorScheme="teal" variant="outline" onClick={onSubmit}>
+            Submit
+          </Button>
         </Center>
-    </Container>
+      </GridItem>
+    </Grid>
   );
 };
 

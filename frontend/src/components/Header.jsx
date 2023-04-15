@@ -1,19 +1,28 @@
 import React from "react";
-import { Image, Container, Heading } from '@chakra-ui/react'
-import { useBoolean } from '@chakra-ui/react'
+import { Image, Text, Flex, Center } from "@chakra-ui/react";
+import { useBoolean } from "@chakra-ui/react";
 
 const Header = () => {
-  const [flag, setFlag] = useBoolean()
+  const [flag, setFlag] = useBoolean();
 
   return (
-    <Container centerContent>
-
-      <Image boxSize='150px' objectFit='cover' src="../img/quotebook.png" align='Center' />
-      <div onMouseEnter={setFlag.on} onMouseLeave={setFlag.off}>
-        {flag ? (<Heading as='h1'>Hack @ UCI Quote Book</Heading>) : (<Heading as='h1'>Hack @ UCI Tech Deliverable</Heading>)}
-      </div>
-
-    </Container>
+    <Center marginTop="2%">
+      <Flex gap="4">
+        <Image
+          boxSize="150px"
+          objectFit="cover"
+          src="../img/quotebook.png"
+          align="Center"
+        />
+        <Center onMouseEnter={setFlag.on} onMouseLeave={setFlag.off}>
+          {flag ? (
+            <Text fontSize="7xl">Hack @ UCI Quote Book</Text>
+          ) : (
+            <Text fontSize="7xl">Hack @ UCI Tech Deliverable</Text>
+          )}
+        </Center>
+      </Flex>
+    </Center>
   );
 };
 

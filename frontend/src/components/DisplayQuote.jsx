@@ -1,9 +1,8 @@
 import Select from "react-select";
-import { Box } from '@chakra-ui/react'
+import { Box, Text, SimpleGrid } from "@chakra-ui/react";
 import Quote from "./Quote";
 
 const DisplayQuote = ({ quotes, getNewAge }) => {
-
   const options = [
     { value: 0, label: "All Time" },
     { value: 1, label: "Last Year" },
@@ -12,22 +11,22 @@ const DisplayQuote = ({ quotes, getNewAge }) => {
   ];
 
   return (
-    <div>
-      <h2>Previous Quotes</h2>
-      <div className="selectMenu">
-        <p>View Quotes From:</p>
-        <Select
-          defaultValue={{ value: 0, label: "All Time" }}
-          onChange={getNewAge}
-          options={options}
-        />
-      </div>
-      <div className="messages">
-        {quotes.map((Squote, index) => (
-          <Quote key={index} quote={Squote} />
-        ))}
-      </div>
-    </div>
+    <Box>
+      <SimpleGrid columns={2} marginLeft="2%" spacing={10} marginBottom="3%">
+        <Box marginTop="4%">
+          <Select
+            defaultValue={{ value: 0, label: "All Time" }}
+            onChange={getNewAge}
+            options={options}
+          />
+        </Box>
+        <Text fontSize="6xl">VIEW QUOTE FROM...</Text>
+      </SimpleGrid>
+
+      {quotes.map((Squote, index) => (
+        <Quote key={index} quote={Squote} />
+      ))}
+    </Box>
   );
 };
 

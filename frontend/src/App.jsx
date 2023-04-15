@@ -1,17 +1,16 @@
 import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { extendTheme , ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from "@chakra-ui/react";
 import DisplayQuote from "./components/DisplayQuote";
 import AddQuote from "./components/AddQuote";
 import Header from "./components/Header";
-
 
 function App() {
   const [quotes, setQuotes] = useState([]);
   const [ageFilter, setFilter] = useState(0);
 
- // Fetch Quotes
+  // Fetch Quotes
   const fetchQuote = async (newAge) => {
     setFilter(newAge);
     axios
@@ -20,7 +19,7 @@ function App() {
         setQuotes(res.data);
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   const getNewAge = (newfilt) => {
     fetchQuote(newfilt.value);
