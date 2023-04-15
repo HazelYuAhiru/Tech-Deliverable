@@ -1,3 +1,3 @@
-# Frontend
-
-The front end consists of a React project scaffolded with Vite.
+# Frontend Package used
+- Chakra UI
+- React Select
