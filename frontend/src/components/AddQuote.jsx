@@ -25,7 +25,7 @@ const AddQuote = ({ ageFilter, getQuote }) => {
       .post(`http://127.0.0.1:8000/quote`, form)
       .then((response) => console.log(response))
       .catch((error) => {
-        console.log("something went wrong");
+        console.log(error);
       });
 
     setName("");
