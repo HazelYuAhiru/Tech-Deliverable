@@ -50,22 +50,27 @@ const AddQuote = ({ ageFilter, getQuote }) => {
         <Text mb="8px">Name: </Text>
         <Input
           placeholder="Let Us Know Your Name!"
-          size="sm"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          size="sm"
           required
         />
 
         <Text mb="8px">Quote: </Text>
         <Textarea
+          placeholder="Type Quote Here"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type Quote Here"
           size="sm"
           required
         />
         <Center marginTop="1%">
-          <Button colorScheme="teal" variant="outline" onClick={onSubmit}>
+          <Button
+            colorScheme="facebook"
+            border="1px"
+            variant="outline"
+            onClick={onSubmit}
+          >
             Submit
           </Button>
         </Center>

@@ -33,13 +33,10 @@ function App() {
   return (
     <div className="App">
       <ChakraProvider>
-        {/* TODO: include an icon for the quote book */}
         <Header />
 
-        {/* TODO: implement custom form submission logic to not refresh the page */}
         <AddQuote ageFilter={ageFilter} getQuote={fetchQuote} />
 
-        {/* TODO: Display the actual quotes from the database */}
         <DisplayQuote quotes={quotes} getNewAge={getNewAge} />
       </ChakraProvider>
     </div>

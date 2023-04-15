@@ -8,7 +8,7 @@ const Quote = ({ quote }) => {
       marginLeft="2%"
       border="2px"
       borderRadius="2xl"
-      borderColor="teal"
+      borderColor="#6699cc"
       marginBottom="1%"
       marginTop="1%"
     >
