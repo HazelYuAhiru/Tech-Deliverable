@@ -12,7 +12,7 @@ app = FastAPI()
 
 database: JSONDatabase[list[dict[str, Any]]] = JSONDatabase("data/database.json")
 
-origins = ["*"] #
+origins = ["*"] 
 
 app.add_middleware(
     CORSMiddleware,
@@ -53,7 +53,7 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
 
 # TODO: add another API route with a query parameter to retrieve quotes based on max age
 @app.get("/getquote")
-def send_message(ageFilter: int):
+def send_message(ageFilter: int) -> list[dict[str, Any]]:
     if ageFilter == 0:
         return database["posts"]
     elif ageFilter == 1:
