@@ -4,6 +4,6 @@ The back end consists of an API made with the FastAPI framework and run with Uvi
 
 # API Additional Lib Used
 - dateutil.relativedelta
-'''
+```
 pip install python-dateutil
-'''
+```
