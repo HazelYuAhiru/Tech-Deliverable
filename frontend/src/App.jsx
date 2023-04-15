@@ -1,9 +1,11 @@
 import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { extendTheme , ChakraProvider } from '@chakra-ui/react'
 import DisplayQuote from "./components/DisplayQuote";
 import AddQuote from "./components/AddQuote";
 import Header from "./components/Header";
+
 
 function App() {
   const [quotes, setQuotes] = useState([]);
@@ -31,14 +33,16 @@ function App() {
 
   return (
     <div className="App">
-      {/* TODO: include an icon for the quote book */}
-      <Header />
+      <ChakraProvider>
+        {/* TODO: include an icon for the quote book */}
+        <Header />
 
-      {/* TODO: implement custom form submission logic to not refresh the page */}
-      <AddQuote ageFilter={ageFilter} getQuote={fetchQuote} />
+        {/* TODO: implement custom form submission logic to not refresh the page */}
+        <AddQuote ageFilter={ageFilter} getQuote={fetchQuote} />
 
-      {/* TODO: Display the actual quotes from the database */}
-      <DisplayQuote quotes={quotes} getNewAge={getNewAge} />
+        {/* TODO: Display the actual quotes from the database */}
+        <DisplayQuote quotes={quotes} getNewAge={getNewAge} />
+      </ChakraProvider>
     </div>
   );
 }

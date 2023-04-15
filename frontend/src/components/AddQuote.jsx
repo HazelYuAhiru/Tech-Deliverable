@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Input , Text , Textarea , Button , Container , Center} from '@chakra-ui/react'
 import axios from "axios";
 
 const AddQuote = ({ ageFilter, getQuote }) => {
@@ -26,26 +27,28 @@ const AddQuote = ({ ageFilter, getQuote }) => {
   };
 
   return (
-    <div>
+    <Container marginTop='2%'>
       <h2>Submit a quote</h2>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="input-name">Name</label>
-        <input
-          type="text"
+        <Text mb='8px'>Name: </Text>
+        <Input placeholder='Let Us Know Your Name!'
+          size='sm'
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
-        <label htmlFor="input-message">Quote</label>
-        <input
-          type="text"
+
+        <Text mb='8px'>Quote: </Text>
+        <Textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          placeholder='Type Quote Here'
+          size='sm'
           required
         />
-        <button type="submit"> Submit</button>
-      </form>
-    </div>
+        <Center>
+        <Button colorScheme='teal' variant='outline' onClick={onSubmit} >Submit</Button>
+        </Center>
+    </Container>
   );
 };
 

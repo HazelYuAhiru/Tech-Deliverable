@@ -9,3 +9,7 @@ body{
 .header{
     text-align: center;
 }
+
+.header onHover{
+    color: #def2f1;
+}

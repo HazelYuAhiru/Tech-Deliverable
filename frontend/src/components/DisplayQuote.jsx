@@ -1,8 +1,9 @@
 import Select from "react-select";
+import { Box } from '@chakra-ui/react'
 import Quote from "./Quote";
 
 const DisplayQuote = ({ quotes, getNewAge }) => {
-  
+
   const options = [
     { value: 0, label: "All Time" },
     { value: 1, label: "Last Year" },
